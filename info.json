@@ -1,0 +1,17 @@
+{
+    "thread_info": {
+        "country": "TJK       ",
+        "city": "DHB",
+        "date": "5/1/2022"
+    },
+    "accounts": [
+        {
+            "barcode": "bar",
+            "surname": "surn",
+            "givenname": "given",
+            "passport": "pass",
+            "email": "emeil",
+            "phone": "phone"
+        }
+    ]
+}

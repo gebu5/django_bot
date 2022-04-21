@@ -1,0 +1,1320 @@
+{% extends "home/base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+    <h1>Добавление задачи</h1>
+    {% if messages %}
+    <ul class="messages">
+  {% for message in messages %}
+<li class="form-message">{{ message }}</li>
+  {% endfor %}
+    </ul>
+    {% endif %}
+    <p>Введите данные:</p>
+    <form action="." method="post">
+  {% for field in form %}
+<div class="fieldWrapper">
+    {{ field.errors }}
+    {{ field.label_tag }} {{ field }}
+
+    {% if field.name == 'accounts' %}
+  <div class="button" id="add-button">Добавить аккаунт</div>
+    {% endif %}
+
+    {% if field.help_text %}
+    <p class="help">{{ field.help_text|safe }}</p>
+    {% endif %}
+</div>
+  {% endfor %}
+  {% csrf_token %}
+  <p><input type="submit" value="Добавить задачу"></p>
+    </form>
+
+    <div class="tasks-container">
+  <h1>Список задач</h1>
+    {% for task_name, task_info in tasks.items %}
+    <div class="task" id="task {{ task_info.0 }}">
+        <span class="task-info"> {{ task_name }} </span>
+        <div class="buttons-container">
+            <div class="button accounts-show-button" id="accounts {{ task_info.0 }}" data-accounts="{{ task_info.1 }}">Аккаунты</div>
+
+            {% if task_info.2 is not True %}
+                <form action="/run/{{ task_info.0 }}/" method="post">
+                    {% csrf_token %}
+                    <button class="button" id="start {{ task_info.0 }}">Запустить</button>
+                </form>
+            {% else %}
+                <form action="/stop/{{ task_info.0 }}/" method="post">
+                    {% csrf_token %}
+                    <button class="button stop-button" id="stop {{ task_info.0 }}">Остановить</button>
+                </form>
+            {% endif %}
+
+            <form action="/delete/{{ task_info.0 }}/" method="post">
+                {% csrf_token %}
+                <button class="button delete-button" id="delete {{ task_info.0 }}">Удалить</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="shadow" id="shadow"></div>
+    <div class="add-account-container" id="add-account-container">
+  <div class="close" id="close">x</div>
+  <input type="text" placeholder="barcode" id="barcode">
+  <input type="text" placeholder="surname" id="surname">
+  <input type="text" placeholder="givenname" id="givenname">
+  <input type="text" placeholder="passport" id="passport">
+  <input type="text" placeholder="email" id="email">
+  <input type="text" placeholder="phone" id="phone">
+  <button class="button" id="add-account-button">Добавить аккаунт</button>
+    </div>
+
+    <div class="accounts-list" id="accounts-list">
+  <p id="accounts-p">
+
+  </p>
+    </div>
+
+    <script type="text/javascript">
+  let close = document.getElementById('close');
+  let add_account_container = document.getElementById('add-account-container');
+  add_account_container.onclick = handler;
+  let shadow = document.getElementById('shadow');
+  shadow.onclick = shadowHandler;
+  let add_account_button = document.getElementById('add-account-button');
+  add_account_button.onclick = addHandler;
+  let accounts_list = document.getElementById('accounts-list');
+
+  function handler(event) {
+if (event.type == 'click') {
+    if (event.target.className == 'close') {
+  hide();
+    }
+}
+  }
+
+  function shadowHandler(event) {
+hide();
+  }
+
+  function addHandler(event) {
+all_inputs = add_account_container.getElementsByTagName('input')
+
+for (let i=0;i<all_inputs.length;i++) {
+    if (all_inputs[i].value == "") {
+  alert('Не все поля заполнены!')
+  return;
+    }
+}
+
+let account_info = ''
+for (let i=0;i<all_inputs.length;i++) {
+    account_info += all_inputs[i].value
+    account_info += ';'
+}
+
+textarea = document.getElementById("id_accounts");
+textarea.value += account_info + '\n';
+  }
+
+  function clearAll() {
+all_inputs = add_account_container.getElementsByTagName('input')
+
+for (let i=0;i<all_inputs.length;i++) {
+    all_inputs[i].value = '';
+}
+  }
+
+  function hide() {
+add_account_container.style.display = 'none';
+shadow.style.display = 'none';
+accounts_list.style.display = 'none';
+clearAll();
+  }
+
+
+
+  document.getElementById("add-button").addEventListener('click', function () {
+document.getElementById('add-account-container').style.display = 'flex';
+document.getElementById('shadow').style.display = 'flex';
+  });
+
+  document.querySelectorAll('.accounts-show-button').forEach(item => {
+item.addEventListener('click', event => {
+    shadow.style.display = 'flex';
+    accounts_list.style.display = 'flex';
+    accounts_p = document.getElementById('accounts-p')
+    accounts_p.innerHTML = item.dataset.accounts
+})
+  })
+    </script>
+
+    <script type="text/javascript">id_country_
+  var country_selector = document.getElementById('id_country_')
+  var city_selector = document.getElementById('id_city')
+
+  country_selector.setAttribute('onchange', 'moveover();')
+
+  for (var q=city_selector.options.length;q>=0;q--) {
+    city_selector.options[q]=null;
+  }
+
+  <!-- Begin
+  function moveover()
+  {
+  var country_selector = document.getElementById('id_country_')
+  var city_selector = document.getElementById('id_city')
+  var selectedItem = country_selector.selectedIndex;
+  var selectedTextblank= ""
+  var selectedText = country_selector.options[selectedItem].text;
+  var selectedvalue = country_selector.options[selectedItem].value;
+  var i;
+  var isNew = true;
+    
+if (selectedvalue == "AFGH      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KABUL','KBL',false,false);
+
+}
+
+if (selectedvalue == "ALB       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('TIRANA','TIA',false,false);
+
+}
+
+if (selectedvalue == "ALGR      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ALGIERS','ALG',false,false);
+
+}
+
+if (selectedvalue == "ARM       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('YEREVAN','YRV',false,false);
+
+}
+
+if (selectedvalue == "AZR       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BAKU','BKU',false,false);
+
+}
+
+if (selectedvalue == "BAMA")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('NASSAU','NSS',false,false);
+
+}
+
+if (selectedvalue == "BAHR      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MANAMA, BAHRAIN','MNA',false,false);
+
+}
+
+if (selectedvalue == "BRDO      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('American Citizen Services, Embassy Bridgetown','BG2',false,false);
+
+	city_selector.options[2] = new Option('BRIDGETOWN CALENDAR FOR VISITOR (B1B2) VISAS','BGN',false,false);
+
+}
+
+if (selectedvalue == "BYS       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MINSK','MSK',false,false);
+
+}
+
+if (selectedvalue == "BLZ       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('Belize','BLZ',false,false);
+
+}
+
+if (selectedvalue == "BENN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('COTONOU','COT',false,false);
+
+}
+
+if (selectedvalue == "BERM      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('HAMILTON','HML',false,false);
+
+}
+
+if (selectedvalue == "BOT       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('GABORONE','GAB',false,false);
+
+}
+
+if (selectedvalue == "BRNI      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BANDAR SERI BEGAWAN','BSB',false,false);
+
+}
+
+if (selectedvalue == "BULG      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('SOFIA','SOF',false,false);
+
+}
+
+if (selectedvalue == "BURK      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('OUAGADOUGOU','OUG',false,false);
+
+}
+
+if (selectedvalue == "BURM      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('RANGOON','RNG',false,false);
+
+}
+
+if (selectedvalue == "BRND      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BUJUMBURA','BUJ',false,false);
+
+}
+
+if (selectedvalue == "CAVI      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PRAIA','PIA',false,false);
+
+}
+
+if (selectedvalue == "CBDA      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PHNOM PENH','PHP',false,false);
+
+}
+
+if (selectedvalue == "CAN")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('OTTAWA Internal ACS Appointments','OTT',false,false);
+
+}
+
+if (selectedvalue == "CHAD      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('NDJAMENA','NDJ',false,false);
+
+}
+
+if (selectedvalue == "CONB      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BRAZZAVILLE','BRZ',false,false);
+
+}
+
+if (selectedvalue == "COD       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KINSHASA','KIN',false,false);
+
+}
+
+if (selectedvalue == "IVCO      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ABIDJAN','ABJ',false,false);
+
+}
+
+if (selectedvalue == "HRV       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ZAGREB','ZGB',false,false);
+
+}
+
+if (selectedvalue == "CUR")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('CURACAO','CRC',false,false);
+
+}
+
+if (selectedvalue == "CYPR      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('NICOSIA','NCS',false,false);
+
+}
+
+if (selectedvalue == "CZEC      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PRAGUE','PRG',false,false);
+
+}
+
+if (selectedvalue == "DEN       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('COPENHAGEN','CPN',false,false);
+
+}
+
+if (selectedvalue == "DJI       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('DJIBOUTI','DJI',false,false);
+
+}
+
+if (selectedvalue == "EGN       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MALABO','MBO',false,false);
+
+}
+
+if (selectedvalue == "ERI       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ASMARA','ASM',false,false);
+
+}
+
+if (selectedvalue == "SZLD      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MBABANE','MBA',false,false);
+
+}
+
+if (selectedvalue == "ETH       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ADDIS ABABA V93 / Refugee Appointment System','ADD',false,false);
+
+}
+
+if (selectedvalue == "FSM       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KOLONIA','KOL',false,false);
+
+}
+
+if (selectedvalue == "FIJI      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('SUVA','SUV',false,false);
+
+}
+
+if (selectedvalue == "FIN       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('HELSINKI','HLS',false,false);
+
+}
+
+if (selectedvalue == "GABN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LIBREVILLE','LIB',false,false);
+
+}
+
+if (selectedvalue == "GRZ       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('TBILISI','TBL',false,false);
+
+}
+
+if (selectedvalue == "GER       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MUNICH','MUN',false,false);
+
+}
+
+if (selectedvalue == "GHAN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ACCRA','ACC',false,false);
+
+}
+
+if (selectedvalue == "GNEA")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('U.S. Embassy Conakry Non-Immigrant Visa Appointment Schedule','CRY',false,false);
+
+}
+
+if (selectedvalue == "GUY       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('GEORGETOWN','GEO',false,false);
+
+}
+
+if (selectedvalue == "HAT       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PORT AU PRINCE','PTP',false,false);
+
+}
+
+if (selectedvalue == "HNK       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('HONG KONG','HNK',false,false);
+
+}
+
+if (selectedvalue == "ICLD      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('REYKJAVIK','RKJ',false,false);
+
+}
+
+if (selectedvalue == "IDSA      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('JAKARTA','JAK',false,false);
+
+	city_selector.options[2] = new Option('SURABAYA','SRB',false,false);
+
+}
+
+if (selectedvalue == "IRAQ      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ERBIL','ERB',false,false);
+
+}
+
+if (selectedvalue == "ITLY      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('Consular Agency Venice','MLN',false,false);
+
+}
+
+if (selectedvalue == "JAM       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KINGSTON','KNG',false,false);
+
+}
+
+if (selectedvalue == "JPN       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('FUKUOKA','FKK',false,false);
+
+	city_selector.options[2] = new Option('NAHA','NH2',false,false);
+
+	city_selector.options[3] = new Option('NAHA','NHA',false,false);
+
+	city_selector.options[4] = new Option('SAPPORO','SPP',false,false);
+
+	city_selector.options[5] = new Option('TOKYO - I-130 Petitions for Immigrant Visas','TK2',false,false);
+
+	city_selector.options[6] = new Option('TOKYO - Nonimmigrant Visas','TKY',false,false);
+
+	city_selector.options[7] = new Option('','KBO',false,false);
+
+}
+
+if (selectedvalue == "JORD      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('AMMAN','AMM',false,false);
+
+}
+
+if (selectedvalue == "KAZ       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ALMATY','ATA',false,false);
+
+	city_selector.options[2] = new Option('NUR-SULTAN','AST',false,false);
+
+}
+
+if (selectedvalue == "KUWT      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KUWAIT','KWT',false,false);
+
+}
+
+if (selectedvalue == "KGZ       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BISHKEK','BKK',false,false);
+
+}
+
+if (selectedvalue == "LAOS      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('VIENTIANE','VNT',false,false);
+
+}
+
+if (selectedvalue == "LES       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MASERU','MAS',false,false);
+
+}
+
+if (selectedvalue == "LBYA      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('TRIPOLI','TRP',false,false);
+
+}
+
+if (selectedvalue == "LITH      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('VILNIUS','VIL',false,false);
+
+}
+
+if (selectedvalue == "LXM")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LUXEMBOURG','LXM',false,false);
+
+}
+
+if (selectedvalue == "MADG      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ANTANANARIVO','ANT',false,false);
+
+}
+
+if (selectedvalue == "MALW      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LILONGWE','LIL',false,false);
+
+}
+
+if (selectedvalue == "MALI      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BAMAKO','BAM',false,false);
+
+}
+
+if (selectedvalue == "MLTA      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('VALLETTA, MALTA','VLL',false,false);
+
+}
+
+if (selectedvalue == "MAUR      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('NOUAKCHOTT','NUK',false,false);
+
+}
+
+if (selectedvalue == "MRTS      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PORT LOUIS','PTL',false,false);
+
+}
+
+if (selectedvalue == "MONG      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ULAANBAATAR','ULN',false,false);
+
+}
+
+if (selectedvalue == "MTG       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PODGORICA','POD',false,false);
+
+}
+
+if (selectedvalue == "MORO      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('CASABLANCA','CSB',false,false);
+
+}
+
+if (selectedvalue == "MOZ       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MAPUTO','MAP',false,false);
+
+}
+
+if (selectedvalue == "NAMB      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('WINDHOEK','WHK',false,false);
+
+}
+
+if (selectedvalue == "NETH      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('AMSTERDAM','AMS',false,false);
+
+}
+
+if (selectedvalue == "NZLD      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('AUCKLAND','ACK',false,false);
+
+	city_selector.options[2] = new Option('AUCKLAND','APA',false,false);
+
+}
+
+if (selectedvalue == "NIR       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('NIAMEY','NMY',false,false);
+
+}
+
+if (selectedvalue == "NRA       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ABUJA','ABU',false,false);
+
+	city_selector.options[2] = new Option('LAGOS','LGS',false,false);
+
+}
+
+if (selectedvalue == "NORW      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('OSLO','OSL',false,false);
+
+}
+
+if (selectedvalue == "OMAN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MUSCAT','MST',false,false);
+
+}
+
+if (selectedvalue == "PNG       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PORT MORESBY','PTM',false,false);
+
+}
+
+if (selectedvalue == "POL       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('WARSAW','WRW',false,false);
+
+}
+
+if (selectedvalue == "PORT      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LISBON','LSB',false,false);
+
+}
+
+if (selectedvalue == "QTAR      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('DOHA','DOH',false,false);
+
+}
+
+if (selectedvalue == "PALA")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KOROR','KOR',false,false);
+
+}
+
+if (selectedvalue == "RMI       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MAJURO','MAJ',false,false);
+
+}
+
+if (selectedvalue == "RUS       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MOSCOW','MOS',false,false);
+
+	city_selector.options[2] = new Option('ST PETERSBURG','SPT',false,false);
+
+	city_selector.options[3] = new Option('VLADIVOSTOK','VLA',false,false);
+
+	city_selector.options[4] = new Option('YEKATERINBURG','YEK',false,false);
+
+}
+
+if (selectedvalue == "RWND      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KIGALI','KGL',false,false);
+
+}
+
+if (selectedvalue == "SLEO      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('FREETOWN','FTN',false,false);
+
+}
+
+if (selectedvalue == "SING      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('SINGAPORE','SGP',false,false);
+
+}
+
+if (selectedvalue == "SVK       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('BRATISLAVA','BTS',false,false);
+
+}
+
+if (selectedvalue == "SVN       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LJUBLJANA','LJU',false,false);
+
+}
+
+if (selectedvalue == "SSDN")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('JUBA','JBA',false,false);
+
+}
+
+if (selectedvalue == "SRL       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('COLOMBO','CLM',false,false);
+
+}
+
+if (selectedvalue == "SUDA      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KHARTOUM','KHT',false,false);
+
+}
+
+if (selectedvalue == "SURM      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PARAMARIBO','PRM',false,false);
+
+}
+
+if (selectedvalue == "SWDN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('STOCKHOLM','STK',false,false);
+
+}
+
+if (selectedvalue == "SYR       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('DAMASCUS ---- All visa services at the Embassy have been suspended until further notice --','DMS',false,false);
+
+}
+
+if (selectedvalue == "TJK       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('DUSHANBE','DHB',false,false);
+
+}
+
+if (selectedvalue == "TAZN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('DAR ES SALAAM','DRS',false,false);
+
+}
+
+if (selectedvalue == "TMOR")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('DILI','DIL',false,false);
+
+}
+
+if (selectedvalue == "TOGO")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LOME','LOM',false,false);
+
+}
+
+if (selectedvalue == "TRIN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('PORT OF SPAIN','PTS',false,false);
+
+}
+
+if (selectedvalue == "TNSA      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('TUNIS','TNS',false,false);
+
+}
+
+if (selectedvalue == "TKM       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('ASHGABAT','AKD',false,false);
+
+}
+
+if (selectedvalue == "UGAN      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('KAMPALA','KMP',false,false);
+
+}
+
+if (selectedvalue == "URU       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('MONTEVIDEO','MTV',false,false);
+
+}
+
+if (selectedvalue == "UZB       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('TASHKENT','THT',false,false);
+
+}
+
+if (selectedvalue == "YEM       ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('SANAA','SAA',false,false);
+
+}
+
+if (selectedvalue == "ZAMB      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('LUSAKA','LUS',false,false);
+
+}
+
+if (selectedvalue == "ZIMB      ")
+{
+for (var q=city_selector.options.length;q>=0;q--)
+	city_selector.options[q]=null;
+	city_selector.options[0] = new Option('Select a City                                                                        ','',false,false);
+
+	city_selector.options[1] = new Option('HARARE','HRE',false,false);
+
+}
+    
+  city_selector.focus();
+  }
+    
+  function validForm()
+{
+    //alert(country_selector.value);
+    //alert(city_selector.value);
+    if(country_selector.value == "")
+  {
+alert("Please select the country where the Consulate/Embassy is located.");
+country_selector.focus();
+return false;
+  }
+    if(city_selector.value == "")
+  {
+alert("Please select the city where the Consulate/Embassy is located.");
+city_selector.focus();
+return false;
+  }
+    country_selector.value = country_selector.value;
+    city_selector.value = city_selector.value;
+    country_selector.value = "";
+    city_selector.value = "";
+    return true;
+}
+  // End -->
+    </script>
+
+{% endblock %}
