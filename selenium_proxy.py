@@ -28,11 +28,9 @@ def set_settings(numbot, user_agent):
     to_args = ', '.join(stringed_rules)
     chrome_options.add_argument(f'--host-rules={to_args}')
 
-    #chrome_options.binary_location = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
-    #chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+
     driver = webdriver.Chrome(options=chrome_options)
     driver.set_window_size(1100, 900)
-    #driver = webdriver.Chrome(executable_path=f'{dir}/chromedriver', options=chrome_options)
     return driver
 
 
