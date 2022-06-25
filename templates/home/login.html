@@ -1,16 +1,18 @@
 {% extends "home/base.html" %}
 {% block title %}Вход{% endblock %}
 {% block content %}
-    <div class="form-header">
-        <h1>Вход</h1>
-        <p>Введите логин и пароль</p>
-        <p class="red-message">{{ login_message }}</p>
+    <div class="container" id="content">
+        <div class="form-header">
+            <h1>Вход</h1>
+            <p>Введите логин и пароль</p>
+            <p class="red-message">{{ login_message }}</p>
+        </div>
+        <form action="." method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p>
+                <input type="submit" value="Войти">
+            </p>
+        </form>
     </div>
-    <form action="." method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p>
-            <input type="submit" value="Войти">
-        </p>
-    </form>
 {% endblock %}

@@ -1,4 +1,5 @@
 import json
+import random
 import zipfile
 import os
 
@@ -110,7 +111,7 @@ def get_proxy(numbot):
     if not proxies:
         return [0] * 5
 
-    proxy = proxies[numbot % len(proxies)]
+    proxy = proxies[random.randint(0, len(proxies))]
 
     return parse_proxy(proxy)
 

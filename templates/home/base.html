@@ -5,12 +5,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static 'base.css' %}" rel="stylesheet">
+        <link href="{% static 'base.css' %}?{% now 'U' %}" rel="stylesheet">
     </head>
+
+    {% block header %}
+    {% endblock %}
+
     <body>
-        <div class="container" id="content">
-            {% block content %}
-            {% endblock %}
-        </div>
+        {% block other %}
+        {% endblock %}
+
+        {% block content %}
+        {% endblock %}
     </body>
 </html>

@@ -7,6 +7,11 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
 
 
+class TelegramAttachForm(forms.Form):
+    api_key = forms.CharField(label='API KEY')
+    chat_url = forms.CharField(label='CHAT URL')
+
+
 class TaskForm(forms.Form):
     countries = [('', 'Select a Country                                                                '),
                  ('AFGH      ', 'AFGHANISTAN '), ('ALB       ', 'ALBANIA '), ('ALGR      ', 'ALGERIA '),
@@ -111,8 +116,14 @@ class TaskForm(forms.Form):
               ('TNS', 'TUNIS'), ('AKD', 'ASHGABAT'), ('KMP', 'KAMPALA'), ('MTV', 'MONTEVIDEO'), ('THT', 'TASHKENT'),
               ('SAA', 'SANAA'), ('LUS', 'LUSAKA'), ('HRE', 'HARARE')]
 
+
     country_ = forms.ChoiceField(label='Страна', choices=countries)
     city = forms.ChoiceField(label='Город', choices=cities)
     date = forms.DateField(label='Дата', initial=datetime.date.today,
                            widget=forms.widgets.DateInput(attrs={'type': 'date'}))
     accounts = forms.CharField(label='Аккаунты', widget=forms.Textarea)
+
+
+class TimeForm(forms.Form):
+    time = forms.TimeField(widget=forms.TimeInput(format='%HH:%MM'))
+

@@ -21,7 +21,9 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('login/', views.user_login),
+    path('logout/', views.user_logout),
     path('admin/', admin.site.urls),
+    path('attach-telegram/', views.attach_telegram),
     path('run/<int:task_id>/', views.run_task),
     path('stop/<int:task_id>/', views.stop_task),
     path('delete/<int:task_id>/', views.delete_task),

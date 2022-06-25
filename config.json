@@ -1,5 +1,5 @@
 {
-  "delay": 30,
-  "threads": 1,
+  "delay": 10,
+  "threads": 10,
   "test_mode": 1
 }

@@ -30,7 +30,7 @@ def check_captcha(driver, api_key, numb_try):
         driver.find_element(By.ID, 'ans').send_keys(captcha + Keys.ENTER)
         time.sleep(1)
         if 'What code is in the image?' in driver.page_source:
-            check_captcha(driver, numb_try + 1)
+            check_captcha(driver, api_key, numb_try + 1)
     return driver
 
 

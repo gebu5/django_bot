@@ -1,0 +1,645 @@
+22-04-2022 09:00:  Ошибка во время проходаMessage: unknown error: net::ERR_TUNNEL_CONNECTION_FAILED
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x005F9943+2595139]
+	Ordinal0 [0x0058C9F1+2148849]
+	Ordinal0 [0x00484528+1066280]
+	Ordinal0 [0x00480DB4+1052084]
+	Ordinal0 [0x004763BD+1008573]
+	Ordinal0 [0x00476F7C+1011580]
+	Ordinal0 [0x004765CA+1009098]
+	Ordinal0 [0x00475BC6+1006534]
+	Ordinal0 [0x00474AD0+1002192]
+	Ordinal0 [0x00474FAD+1003437]
+	Ordinal0 [0x00485C4A+1072202]
+	Ordinal0 [0x004DC19D+1425821]
+	Ordinal0 [0x004CB9EC+1358316]
+	Ordinal0 [0x004DBAF2+1424114]
+	Ordinal0 [0x004CB806+1357830]
+	Ordinal0 [0x004A6086+1204358]
+	Ordinal0 [0x004A6F96+1208214]
+	GetHandleVerifier [0x0079B232+1658114]
+	GetHandleVerifier [0x0085312C+2411516]
+	GetHandleVerifier [0x0068F261+560433]
+	GetHandleVerifier [0x0068E366+556598]
+	Ordinal0 [0x0059286B+2173035]
+	Ordinal0 [0x005975F8+2192888]
+	Ordinal0 [0x005976E5+2193125]
+	Ordinal0 [0x005A11FC+2232828]
+	BaseThreadInitThunk [0x76BFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77A27A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77A27A4E+238]
+
+22-04-2022 09:01:  Ошибка во время регистрации!
+22-04-2022 09:07:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x005F9943+2595139]
+	Ordinal0 [0x0058C9F1+2148849]
+	Ordinal0 [0x00484528+1066280]
+	Ordinal0 [0x004B0FD4+1249236]
+	Ordinal0 [0x004B11CB+1249739]
+	Ordinal0 [0x004DD812+1431570]
+	Ordinal0 [0x004CBA34+1358388]
+	Ordinal0 [0x004DBAF2+1424114]
+	Ordinal0 [0x004CB806+1357830]
+	Ordinal0 [0x004A6086+1204358]
+	Ordinal0 [0x004A6F96+1208214]
+	GetHandleVerifier [0x0079B232+1658114]
+	GetHandleVerifier [0x0085312C+2411516]
+	GetHandleVerifier [0x0068F261+560433]
+	GetHandleVerifier [0x0068E366+556598]
+	Ordinal0 [0x0059286B+2173035]
+	Ordinal0 [0x005975F8+2192888]
+	Ordinal0 [0x005976E5+2193125]
+	Ordinal0 [0x005A11FC+2232828]
+	BaseThreadInitThunk [0x76BFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77A27A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77A27A4E+238]
+
+22-04-2022 09:07:  Ошибка во время регистрации!
+22-04-2022 09:10:  Cant screenshot:Message: chrome not reachable
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x005F9943+2595139]
+	Ordinal0 [0x0058C9F1+2148849]
+	Ordinal0 [0x004843F0+1065968]
+	Ordinal0 [0x004787C2+1017794]
+	Ordinal0 [0x00478FF8+1019896]
+	Ordinal0 [0x0047A892+1026194]
+	Ordinal0 [0x00474219+999961]
+	Ordinal0 [0x00485860+1071200]
+	Ordinal0 [0x004DB2D2+1422034]
+	Ordinal0 [0x004CB806+1357830]
+	Ordinal0 [0x004A6086+1204358]
+	Ordinal0 [0x004A6F96+1208214]
+	GetHandleVerifier [0x0079B232+1658114]
+	GetHandleVerifier [0x0085312C+2411516]
+	GetHandleVerifier [0x0068F261+560433]
+	GetHandleVerifier [0x0068E366+556598]
+	Ordinal0 [0x0059286B+2173035]
+	Ordinal0 [0x005975F8+2192888]
+	Ordinal0 [0x005976E5+2193125]
+	Ordinal0 [0x005A11FC+2232828]
+	BaseThreadInitThunk [0x76BFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77A27A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77A27A4E+238]
+
+22-04-2022 09:10:  Ошибка во время проходаCant screenshot
+22-04-2022 09:13:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x005F9943+2595139]
+	Ordinal0 [0x0058C9F1+2148849]
+	Ordinal0 [0x00484528+1066280]
+	Ordinal0 [0x004B0FD4+1249236]
+	Ordinal0 [0x004B11CB+1249739]
+	Ordinal0 [0x004DD812+1431570]
+	Ordinal0 [0x004CBA34+1358388]
+	Ordinal0 [0x004DBAF2+1424114]
+	Ordinal0 [0x004CB806+1357830]
+	Ordinal0 [0x004A6086+1204358]
+	Ordinal0 [0x004A6F96+1208214]
+	GetHandleVerifier [0x0079B232+1658114]
+	GetHandleVerifier [0x0085312C+2411516]
+	GetHandleVerifier [0x0068F261+560433]
+	GetHandleVerifier [0x0068E366+556598]
+	Ordinal0 [0x0059286B+2173035]
+	Ordinal0 [0x005975F8+2192888]
+	Ordinal0 [0x005976E5+2193125]
+	Ordinal0 [0x005A11FC+2232828]
+	BaseThreadInitThunk [0x76BFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77A27A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77A27A4E+238]
+
+22-04-2022 09:13:  Ошибка во время регистрации!
+22-04-2022 09:18:  Ошибка во время регистрации!
+22-04-2022 09:23:  Ошибка во время проходаMessage: no such element: Unable to locate element: {"method":"css selector","selector":"[name="nbarcode"]"}
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x005F9943+2595139]
+	Ordinal0 [0x0058C9F1+2148849]
+	Ordinal0 [0x00484528+1066280]
+	Ordinal0 [0x004B0FD4+1249236]
+	Ordinal0 [0x004B11CB+1249739]
+	Ordinal0 [0x004DD812+1431570]
+	Ordinal0 [0x004CBA34+1358388]
+	Ordinal0 [0x004DBAF2+1424114]
+	Ordinal0 [0x004CB806+1357830]
+	Ordinal0 [0x004A6086+1204358]
+	Ordinal0 [0x004A6F96+1208214]
+	GetHandleVerifier [0x0079B232+1658114]
+	GetHandleVerifier [0x0085312C+2411516]
+	GetHandleVerifier [0x0068F261+560433]
+	GetHandleVerifier [0x0068E366+556598]
+	Ordinal0 [0x0059286B+2173035]
+	Ordinal0 [0x005975F8+2192888]
+	Ordinal0 [0x005976E5+2193125]
+	Ordinal0 [0x005A11FC+2232828]
+	BaseThreadInitThunk [0x76BFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77A27A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77A27A4E+238]
+
+22-04-2022 09:26:  Ошибка во время регистрации!
+22-04-2022 09:33:  Ошибка во время проходаMessage: no such element: Unable to locate element: {"method":"css selector","selector":"[name="nDate"]"}
+  (Session info: chrome=100.0.4896.127)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x005F9943+2595139]
+	Ordinal0 [0x0058C9F1+2148849]
+	Ordinal0 [0x00484528+1066280]
+	Ordinal0 [0x004B0FD4+1249236]
+	Ordinal0 [0x004B11CB+1249739]
+	Ordinal0 [0x004DD812+1431570]
+	Ordinal0 [0x004CBA34+1358388]
+	Ordinal0 [0x004DBAF2+1424114]
+	Ordinal0 [0x004CB806+1357830]
+	Ordinal0 [0x004A6086+1204358]
+	Ordinal0 [0x004A6F96+1208214]
+	GetHandleVerifier [0x0079B232+1658114]
+	GetHandleVerifier [0x0085312C+2411516]
+	GetHandleVerifier [0x0068F261+560433]
+	GetHandleVerifier [0x0068E366+556598]
+	Ordinal0 [0x0059286B+2173035]
+	Ordinal0 [0x005975F8+2192888]
+	Ordinal0 [0x005976E5+2193125]
+	Ordinal0 [0x005A11FC+2232828]
+	BaseThreadInitThunk [0x76BFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77A27A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77A27A4E+238]
+
+23-04-2022 09:06:  Ошибка во время проходаcheck_captcha() missing 1 required positional argument: 'numb_try'
+23-04-2022 11:00:  Ошибка во время проходаcheck_captcha() missing 1 required positional argument: 'numb_try'
+23-04-2022 11:20:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00919943+2595139]
+	Ordinal0 [0x008AC9F1+2148849]
+	Ordinal0 [0x007A4528+1066280]
+	Ordinal0 [0x007D0FD4+1249236]
+	Ordinal0 [0x007D11CB+1249739]
+	Ordinal0 [0x007FD812+1431570]
+	Ordinal0 [0x007EBA34+1358388]
+	Ordinal0 [0x007FBAF2+1424114]
+	Ordinal0 [0x007EB806+1357830]
+	Ordinal0 [0x007C6086+1204358]
+	Ordinal0 [0x007C6F96+1208214]
+	GetHandleVerifier [0x00ABB232+1658114]
+	GetHandleVerifier [0x00B7312C+2411516]
+	GetHandleVerifier [0x009AF261+560433]
+	GetHandleVerifier [0x009AE366+556598]
+	Ordinal0 [0x008B286B+2173035]
+	Ordinal0 [0x008B75F8+2192888]
+	Ordinal0 [0x008B76E5+2193125]
+	Ordinal0 [0x008C11FC+2232828]
+	BaseThreadInitThunk [0x75F3FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77B17A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77B17A4E+238]
+
+25-04-2022 18:06:  Ошибка во время проходаCaptcha error: ERROR_CAPTCHA_UNSOLVABLE
+04-05-2022 07:52:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00C8B8F3+2406643]
+	Ordinal0 [0x00C1AF31+1945393]
+	Ordinal0 [0x00B0C748+837448]
+	Ordinal0 [0x00B392E0+1020640]
+	Ordinal0 [0x00B3957B+1021307]
+	Ordinal0 [0x00B66372+1205106]
+	Ordinal0 [0x00B542C4+1131204]
+	Ordinal0 [0x00B64682+1197698]
+	Ordinal0 [0x00B54096+1130646]
+	Ordinal0 [0x00B2E636+976438]
+	Ordinal0 [0x00B2F546+980294]
+	GetHandleVerifier [0x00EF9612+2498066]
+	GetHandleVerifier [0x00EEC920+2445600]
+	GetHandleVerifier [0x00D24F2A+579370]
+	GetHandleVerifier [0x00D23D36+574774]
+	Ordinal0 [0x00C21C0B+1973259]
+	Ordinal0 [0x00C26688+1992328]
+	Ordinal0 [0x00C26775+1992565]
+	Ordinal0 [0x00C2F8D1+2029777]
+	BaseThreadInitThunk [0x76DFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x778F7A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x778F7A4E+238]
+
+04-05-2022 07:53:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00C8B8F3+2406643]
+	Ordinal0 [0x00C1AF31+1945393]
+	Ordinal0 [0x00B0C748+837448]
+	Ordinal0 [0x00B392E0+1020640]
+	Ordinal0 [0x00B3957B+1021307]
+	Ordinal0 [0x00B66372+1205106]
+	Ordinal0 [0x00B542C4+1131204]
+	Ordinal0 [0x00B64682+1197698]
+	Ordinal0 [0x00B54096+1130646]
+	Ordinal0 [0x00B2E636+976438]
+	Ordinal0 [0x00B2F546+980294]
+	GetHandleVerifier [0x00EF9612+2498066]
+	GetHandleVerifier [0x00EEC920+2445600]
+	GetHandleVerifier [0x00D24F2A+579370]
+	GetHandleVerifier [0x00D23D36+574774]
+	Ordinal0 [0x00C21C0B+1973259]
+	Ordinal0 [0x00C26688+1992328]
+	Ordinal0 [0x00C26775+1992565]
+	Ordinal0 [0x00C2F8D1+2029777]
+	BaseThreadInitThunk [0x76DFFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x778F7A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x778F7A4E+238]
+
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  Error while working threadDont load
+12-06-2022 22:10:  Error while create selenium
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+12-06-2022 22:11:  --Не прогрузилась страница, повтор.Message: 
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0088B8F3+2406643]
+	Ordinal0 [0x0081AF31+1945393]
+	Ordinal0 [0x0070C748+837448]
+	Ordinal0 [0x007392E0+1020640]
+	Ordinal0 [0x0073957B+1021307]
+	Ordinal0 [0x00766372+1205106]
+	Ordinal0 [0x007542C4+1131204]
+	Ordinal0 [0x00764682+1197698]
+	Ordinal0 [0x00754096+1130646]
+	Ordinal0 [0x0072E636+976438]
+	Ordinal0 [0x0072F546+980294]
+	GetHandleVerifier [0x00AF9612+2498066]
+	GetHandleVerifier [0x00AEC920+2445600]
+	GetHandleVerifier [0x00924F2A+579370]
+	GetHandleVerifier [0x00923D36+574774]
+	Ordinal0 [0x00821C0B+1973259]
+	Ordinal0 [0x00826688+1992328]
+	Ordinal0 [0x00826775+1992565]
+	Ordinal0 [0x0082F8D1+2029777]
+	BaseThreadInitThunk [0x777CFA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77917A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77917A4E+238]
+
+12-06-2022 22:11:  Error while working threadDont load
+14-06-2022 17:22:  Error while working threadCaptcha quest didn't started: {'status': 0, 'request': 'ERROR_ZERO_BALANCE', 'error_text': "You don't have funds on your account."}
+14-06-2022 17:22:  Error while working threadCaptcha quest didn't started: {'status': 0, 'request': 'ERROR_ZERO_BALANCE', 'error_text': "You don't have funds on your account."}
+14-06-2022 17:23:  Error while working threadCaptcha quest didn't started: {'status': 0, 'request': 'ERROR_ZERO_BALANCE', 'error_text': "You don't have funds on your account."}
+14-06-2022 17:23:  Error while working threadCaptcha quest didn't started: {'status': 0, 'request': 'ERROR_ZERO_BALANCE', 'error_text': "You don't have funds on your account."}
+14-06-2022 17:23:  Error while working threadCaptcha quest didn't started: {'status': 0, 'request': 'ERROR_ZERO_BALANCE', 'error_text': "You don't have funds on your account."}

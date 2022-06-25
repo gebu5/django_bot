@@ -5,6 +5,7 @@ from selenium_proxy import set_settings
 from Screenshot import Screenshot_Clipping
 from utils import *
 from random import randint
+from queue import Queue
 
 
 class Submiter:
@@ -13,9 +14,10 @@ class Submiter:
                   ' AppleWebKit/537.36 (KHTML, like Gecko)'
                   ' Chrome/96.0.4664.45 Safari/537.36')
 
-    def __init__(self, bot, numbot, barcode, surname, givenname, passport, email, phone, delay, country, city, date, test_mode):
+    def __init__(self, bot, numbot, barcode, surname, givenname, passport, email, phone, delay, country, city, date, channel_name):
         self.delay = delay
         self.bot = bot
+        self.channel_name = channel_name
         self.driver = set_settings(numbot, Submiter.user_agent)
         self.barcode = barcode
         self.surname = surname
@@ -26,18 +28,23 @@ class Submiter:
         self.country = country
         self.city = city
         self.date = date
-        self.test_mode = test_mode
+        self.end = Queue()
 
     def body(self, end):
+        self.end = end
         while True:
             if end.qsize():
-                return None
+                return 'end_task'
             datas = self.first_submit()
             if datas:
                 return datas
+            if end.qsize():
+                return 'end_task'
             time.sleep(self.delay)
 
     def first_submit(self):
+        if self.end.qsize():
+            return 'end_task'
         self.driver.get('https://evisaforms.state.gov/Instructions/SchedulingSystem.asp')
         time.sleep(1)
 
@@ -48,7 +55,7 @@ class Submiter:
             WebDriverWait(self.driver, 5).until(element_present)
         except Exception as error:
             lprint('--Не прогрузилась страница, повтор.' + str(error))
-            return False
+            raise RuntimeError('Dont load')
 
         select = Select(self.driver.find_element(By.NAME, 'CountryCodeShow'))
         select.select_by_value(self.country)
@@ -59,6 +66,8 @@ class Submiter:
         return self.second_submit()
 
     def second_submit(self):
+        if self.end.qsize():
+            return 'end_task'
         self.driver = check_captcha(self.driver, Submiter.api_key, 0)
         captcha = solve_captcha(self.driver, Submiter.api_key, 'needed')
         self.driver.execute_script('arguments[0].scrollIntoView(true);', self.driver.find_element(By.ID, 'CaptchaCode'))
@@ -81,6 +90,8 @@ class Submiter:
         return self.choose_date()
 
     def choose_date(self):
+        if self.end.qsize():
+            return 'end_task'
         self.driver = check_captcha(self.driver, Submiter.api_key, 0)
         select = Select(self.driver.find_element(By.NAME, 'nDate'))
         select.select_by_value(self.date)
@@ -97,6 +108,8 @@ class Submiter:
         return self.final_submit()
 
     def final_submit(self):
+        if self.end.qsize():
+            return 'end_task'
         tbody = self.driver.find_elements(By.TAG_NAME, 'tbody')
         available_times = tbody[-2].find_elements(By.TAG_NAME, 'input')
         if not available_times:
@@ -118,8 +131,6 @@ class Submiter:
 
         self.driver.find_element(By.ID, 'confidentiality').click()
 
-        self.send_file_telegram()
-
         submit.click()
         time.sleep(1)
         if 'Invalid CAPTCHA value entered.' in self.driver.page_source:
@@ -134,8 +145,9 @@ class Submiter:
         self.driver = check_captcha(self.driver, Submiter.api_key, 0)
 
         if 'PLEASE PRINT THIS PAGE FOR YOUR RECORD' in self.driver.page_source:
-            self.send_file_telegram()
-            return True
+            if self.end.qsize():
+                return 'end_task'
+            return self.send_file_telegram()
 
         lprint('Ошибка во время регистрации!')
         return 'Bad acc'
@@ -144,6 +156,8 @@ class Submiter:
         tries = 0
         file_name = f'{self.surname} {self.givenname}.pdf'
         while True:
+            if self.end.qsize():
+                return 'end_task'
             ss = Screenshot_Clipping.Screenshot()
             try:
                 ss.full_Screenshot(self.driver, save_path=r'./reports', image_name=file_name)
@@ -156,6 +170,7 @@ class Submiter:
                     raise RuntimeError('Cant screenshot')
                 time.sleep(2)
 
-        CHANNEL_NAME = '@testing_bottt' if self.test_mode else '@bottestvisa'
-        self.bot.send_document(CHANNEL_NAME, document=open(f'reports/{file_name}', 'rb'))
-        return True
+        if self.end.qsize():
+            return 'end_task'
+        self.bot.send_document(self.channel_name, document=open(f'reports/{file_name}', 'rb'))
+        return 'success'

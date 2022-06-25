@@ -9,7 +9,6 @@
     font-size: 20px;
 
     background-color: #059862;
-    color: white;
 }
 
 .shadow {
@@ -68,15 +67,18 @@
 }
 
 .button {
+    display: inline-block;
+
     background-color: #4CAF50; /* Green */
     border: none;
-    color: white;
+
     margin-top: 30px;
     padding: 15px 32px;
+
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
+    color: white;
 }
 
 .delete-button {
@@ -145,9 +147,68 @@
     margin-right: 5px;
 }
 
-form {
+.container form {
     width: 50%;
     margin: auto;
+}
+
+.telegram_attach_container {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    z-index: 999;
+
+    margin-left: -185px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #059862;
+}
+
+.telegram_attach_container form {
+    width: 90%;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+html {
+    color: white;
+}
+
+body {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: end;
+    padding: 20px 50px 20px 50px;
+    background-color: #1abc9c;
+
+    font-size: 18px;
+}
+
+header .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+
+    margin: 0px 10px;
+    padding: 10px 20px;
+
+    text-align: center;
+    text-decoration: none;
 }
 
 textarea {
